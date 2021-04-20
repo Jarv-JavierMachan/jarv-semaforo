@@ -112,6 +112,9 @@ function stop(){
 
 function reset(){
     container__main.className = 'container__main';
+    error.style.display = 'none'
+    red.value = ''
+    yellow.value = ''
     clearInterval(timeStarted);
     time.innerHTML = "00:00:00";
     h=0; m =0; s=0; mls =0;

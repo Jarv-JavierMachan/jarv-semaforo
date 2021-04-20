@@ -100,24 +100,20 @@ h3 {
   text-align: center;
 }
 .box .one:focus {
-  border: solid 3px #ffe031;
-  outline: none;
+  outline: solid 3px #ffe031;
 }
 .box .two:focus {
   outline: solid 3px #fc5252;
 }
 
 .container__aside-data .box span {
-  /* background: #000; */
   font-size: 20px;
-  /* color: blue; */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .container__aside-clock {
-  /* background: green; */
   width: 100%;
   height: 40%;
 }
@@ -143,13 +139,14 @@ h3 {
   position: relative;
   margin: 0 5px;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0002);
+  flex-shrink: 1;
 }
 
 .container__aside-clock .time div span {
   position: relative;
   display: block;
-  width: 90px;
-  height: 70px;
+  width: 80px;
+  height: 60px;
   background: #2496f3;
   color: #fff;
   font-weight: 300;
@@ -181,9 +178,9 @@ h3 {
 .container__aside-clock .time div:nth-last-child(1) span {
   position: absolute;
   bottom: 0;
-  width: 50px;
+  width: 30px;
   height: 30px;
-  font-size: 1.5em;
+  font-size: 1em;
   background: #fff;
   color: #000;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0002);
@@ -194,8 +191,6 @@ h3 {
   transition: 0.3s ease;
   background: linear-gradient(to left, #2e3053 10%, #1b1c31);
   color: #eee;
-  /* background: linear-gradient(to left, #0afb60 10%, #54db63); */
-  /* background: linear-gradient(to left, #f04579, #fc5252 80%); */
   width: 70%;
   border-radius: 0 15px 15px 0;
 }
@@ -236,13 +231,12 @@ span {
 }
 
 .c-time {
-  /* background: linear-gradient(600deg, #1eadf0, #0afb60); */
-
-  margin-top: 50px;
-  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
   height: 250px;
   border-radius: 20px;
-  box-shadow: 11px 17px 22px 0 var(--shadow);
 }
 
 .c-time > .screen {
@@ -252,8 +246,8 @@ span {
 .c-btn {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 70px;
-  margin: 15px 100px;
+  gap: 80px;
+  margin: 15px auto;
 }
 
 .c-btn > button {
@@ -296,12 +290,42 @@ button:hover {
   .container__main {
     width: 60%;
   }
+  .container__main-green {
+    width: 60%;
+  }
+  .container__main-yellow {
+    width: 60%;
+  }
+  .container__main-red {
+    width: 60%;
+  }
   .container__main-error {
     width: 375px;
+  }
+  .container__aside-clock .time div:nth-last-child(1) span {
+    width: 30px;
+    height: 20px;
+    font-size: 16px;
   }
 }
 
 @media only screen and (max-width: 925px) {
+  .container__aside {
+    width: 50%;
+  }
+
+  .container__main {
+    width: 50%;
+  }
+  .container__main-green {
+    width: 50%;
+  }
+  .container__main-yellow {
+    width: 50%;
+  }
+  .container__main-red {
+    width: 50%;
+  }
   .box p {
     width: 130px;
   }
@@ -319,43 +343,75 @@ button:hover {
     height: 20px;
     font-size: 16px;
   }
-  .c-body span {
+  .c-time span {
     font-size: 80px;
   }
-  .c-body .c-btn button {
+  .c-time .c-btn button {
     font-size: 40px;
+  }
+  .container__main-error {
+    max-width: 330px;
   }
 }
 
 @media only screen and (max-width: 700px) {
   .container {
     display: block;
-    justify-content: center;
-    align-items: center;
     position: relative;
-    max-height: max-content;
+    margin: 0 auto 15px;
   }
   .container__aside {
     width: 100%;
   }
+  .container__aside-clock {
+    display: none;
+    position: absolute;
+  }
+
   .container__main {
     width: 100%;
+    border-radius: 0 0 18px 18px;
+    background: #1b1c31;
+    display: flex;
+    flex-direction: column;
+  }
+  .container__main-green {
+    width: 100%;
+    border-radius: 0 0 18px 18px;
+  }
+  .container__main-yellow {
+    width: 100%;
+    border-radius: 0 0 18px 18px;
+  }
+  .container__main-red {
+    width: 100%;
+    border-radius: 0 0 18px 18px;
   }
 
   .container__main-error {
-    position: relative;
+    order: -1;
     width: 250px;
     margin: 10px auto;
     padding-bottom: 15px;
   }
-  .c-time {
-    max-height: 150px;
-  }
 
-  .c-body span {
+  .c-time {
+    width: 100%;
+  }
+  .c-time .screen {
+    width: 275px;
+    margin: 0 auto;
+  }
+  .c-time span {
     font-size: 50px;
   }
-  .c-body .c-btn button {
+  .c-time .c-btn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 15px auto;
+  }
+  .c-time .c-btn button {
     font-size: 30px;
   }
 }
